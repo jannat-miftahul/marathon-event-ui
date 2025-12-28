@@ -4,10 +4,10 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import Modal from "../../components/Modal";
 import UpdateRegistrationForm from "../../components/UpdateRegistrationForm";
+import { FaEdit, FaTrash, FaRunning } from "react-icons/fa";
 
-const ApplyData = ({ registration, registrations, setRegistrations }) => {
+const ApplyData = ({ registration, registrations, setRegistrations, index }) => {
     const { _id } = registration;
-    console.log("reg id", _id);
 
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
     const [selectedRegistration, setSelectedRegistration] = useState({});
@@ -84,25 +84,50 @@ const ApplyData = ({ registration, registrations, setRegistrations }) => {
     };
 
     return (
-        <tr className="text-xs sm:text-sm lg:text-base">
-            <td className="py-2 px-1 sm:px-2">{registrations.indexOf(registration) + 1}</td>
-            <td className="py-2 px-1 sm:px-2 max-w-[80px] sm:max-w-[120px] truncate">{registration.marathonTitle}</td>
-            <td className="py-2 px-1 sm:px-2 hidden sm:table-cell">{registration.marathonStartDate}</td>
-            <td className="py-2 px-1 sm:px-2 hidden md:table-cell">{registration.firstName} {registration.lastName}</td>
-            <td className="py-2 px-1 sm:px-2 hidden lg:table-cell">{registration.contactNumber}</td>
-            <td className="py-2 px-1 sm:px-2">
-                <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+        <tr className="hover:bg-base-200/50 transition-colors">
+            <td className="py-4 px-4">
+                <span className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-sm font-semibold text-primary">
+                    {index + 1}
+                </span>
+            </td>
+            <td className="py-4 px-4">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <FaRunning className="text-secondary" />
+                    </div>
+                    <div>
+                        <p className="font-semibold text-base-content line-clamp-1">{registration.marathonTitle}</p>
+                        <p className="text-xs text-base-content/50 sm:hidden">{registration.marathonStartDate}</p>
+                    </div>
+                </div>
+            </td>
+            <td className="py-4 px-4 hidden sm:table-cell">
+                <span className="text-sm text-base-content/70">{registration.marathonStartDate}</span>
+            </td>
+            <td className="py-4 px-4 hidden md:table-cell">
+                <div>
+                    <p className="font-medium text-base-content">{registration.firstName} {registration.lastName}</p>
+                    <p className="text-xs text-base-content/50">{registration.email}</p>
+                </div>
+            </td>
+            <td className="py-4 px-4 hidden lg:table-cell">
+                <span className="text-sm text-base-content/70">{registration.contactNumber}</span>
+            </td>
+            <td className="py-4 px-4">
+                <div className="flex items-center gap-2">
                     <button
                         onClick={() => handleUpdateRegistration(_id)}
-                        className="btn btn-xs sm:btn-sm bg-primary text-white px-2 sm:px-4 py-1 rounded-full hover:bg-secondary text-xs"
+                        className="p-2 bg-primary/10 text-primary rounded-lg hover:bg-primary hover:text-white transition-all"
+                        title="Edit"
                     >
-                        Edit
+                        <FaEdit className="text-sm" />
                     </button>
                     <button
                         onClick={() => handleDeleteMarathon(_id)}
-                        className="btn btn-xs sm:btn-sm bg-red-500 text-white px-2 sm:px-4 py-1 rounded-full hover:bg-red-600 text-xs"
+                        className="p-2 bg-red-500/10 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-all"
+                        title="Delete"
                     >
-                        Delete
+                        <FaTrash className="text-sm" />
                     </button>
                 </div>
             </td>
@@ -123,6 +148,7 @@ ApplyData.propTypes = {
     registration: PropTypes.object.isRequired,
     registrations: PropTypes.array.isRequired,
     setRegistrations: PropTypes.func.isRequired,
+    index: PropTypes.number.isRequired,
 };
 
 export default ApplyData;
