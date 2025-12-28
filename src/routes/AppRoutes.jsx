@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import AuthLayout from "../layouts/AuthLayout";
@@ -65,6 +65,10 @@ const AppRoutes = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 children: [
+                    {
+                        index: true,
+                        element: <Navigate to="my-marathons" replace />,
+                    },
                     {
                         path: "add-marathon",
                         element: <AddMarathon />,

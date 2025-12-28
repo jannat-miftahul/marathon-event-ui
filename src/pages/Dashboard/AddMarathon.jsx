@@ -5,11 +5,22 @@ import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import {
+    FaRunning,
+    FaCalendarAlt,
+    FaMapMarkerAlt,
+    FaImage,
+    FaUser,
+    FaEnvelope,
+    FaPlus,
+    FaRuler,
+    FaAlignLeft,
+} from "react-icons/fa";
 
 const AddMarathon = () => {
     const { user } = useAuth();
-    console.log(user);
     const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [marathonDetails, setMarathonDetails] = useState({
         marathonTitle: "",
         startRegistrationDate: new Date(),
@@ -21,7 +32,6 @@ const AddMarathon = () => {
         marathonImage: "",
         createdAt: new Date(),
         totalRegistrationCount: 0,
-        // user who created the marathon
         email: user?.email || "anonymous@example.com",
         username: user?.displayName || "Anonymous",
     });
@@ -58,6 +68,7 @@ const AddMarathon = () => {
 
     const handleAddMarathon = (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         fetch("https://marathon-event-api.vercel.app/marathons", {
             method: "POST",
@@ -72,165 +83,269 @@ const AddMarathon = () => {
                     toast.success("Marathon added successfully!");
                     navigate("/dashboard/my-marathons");
                 }
+                setIsSubmitting(false);
             })
             .catch((error) => {
                 console.error("Error:", error);
+                setIsSubmitting(false);
             });
     };
 
     return (
-        <div className="max-w-3xl mx-auto p-2 sm:p-4">
+        <div className="relative min-h-screen">
             <Helmet>
                 <title>RunTrack | Add Marathon</title>
             </Helmet>
 
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-raleway font-semibold text-center mb-4 text-base-content">
-                Add Marathon
-            </h1>
-            <form
-                onSubmit={handleAddMarathon}
-                className="bg-base-100 p-4 sm:p-6 rounded-lg border border-base-300 shadow-lg"
-            >
-                <div className="mb-3 sm:mb-4">
-                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                        Marathon Title
-                    </label>
-                    <input
-                        type="text"
-                        name="marathonTitle"
-                        value={marathonDetails.marathonTitle}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
-                        required
-                    />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <div className="mb-3 sm:mb-4">
-                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                            Start Registration Date
-                        </label>
-                        <DatePicker
-                            selected={marathonDetails.startRegistrationDate}
-                            onChange={(date) =>
-                                handleDateChange(date, "startRegistrationDate")
-                            }
-                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
-                            required
-                        />
+            {/* Decorative background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute -top-24 -right-24 w-72 h-72 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 -left-24 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
+            </div>
+
+            <div className="relative max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+                {/* Header */}
+                <div className="text-center mb-8">
+                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <FaRunning className="text-3xl text-primary" />
                     </div>
-                    <div className="mb-3 sm:mb-4">
-                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                            End Registration Date
-                        </label>
-                        <DatePicker
-                            selected={marathonDetails.endRegistrationDate}
-                            onChange={(date) =>
-                                handleDateChange(date, "endRegistrationDate")
-                            }
-                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
-                            required
-                        />
-                    </div>
-                </div>
-                <div className="mb-3 sm:mb-4">
-                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                        Marathon Start Date
-                    </label>
-                    <DatePicker
-                        selected={marathonDetails.marathonStartDate}
-                        onChange={(date) =>
-                            handleDateChange(date, "marathonStartDate")
-                        }
-                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
-                        required
-                    />
-                </div>
-                <div className="mb-3 sm:mb-4">
-                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                        Location
-                    </label>
-                    <input
-                        type="text"
-                        name="location"
-                        value={marathonDetails.location}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
-                        required
-                    />
-                </div>
-                <div className="mb-3 sm:mb-4">
-                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                        Running Distance
-                    </label>
-                    <input
-                        type="text"
-                        name="runningDistance"
-                        value={marathonDetails.runningDistance}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
-                        required
-                    />
-                </div>
-                <div className="mb-3 sm:mb-4">
-                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                        Description
-                    </label>
-                    <textarea
-                        name="description"
-                        value={marathonDetails.description}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none min-h-[100px]"
-                        required
-                    />
-                </div>
-                <div className="mb-3 sm:mb-4">
-                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                        Marathon Image URL
-                    </label>
-                    <input
-                        type="url"
-                        name="marathonImage"
-                        value={marathonDetails.marathonImage}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
-                        required
-                    />
+                    <h1 className="text-2xl sm:text-3xl font-bold text-base-content mb-2">
+                        Add New Marathon
+                    </h1>
+                    <p className="text-base-content/60">
+                        Create a new marathon event for runners to join
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
-                    <div>
-                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={marathonDetails.email}
-                            readOnly
-                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-200 text-base-content/60 text-sm sm:text-base cursor-not-allowed"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
-                            Username
-                        </label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={marathonDetails.username}
-                            readOnly
-                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-200 text-base-content/60 text-sm sm:text-base cursor-not-allowed"
-                        />
-                    </div>
-                </div>
-
-                <button
-                    type="submit"
-                    className="btn btn-primary text-white px-8 py-2 rounded-lg hover:scale-105 transition-transform font-semibold"
+                <form
+                    onSubmit={handleAddMarathon}
+                    className="bg-base-100 p-6 sm:p-8 rounded-2xl border border-base-300 shadow-lg"
                 >
-                    Add Marathon
-                </button>
-            </form>
+                    {/* Section: Basic Info */}
+                    <div className="mb-8">
+                        <h2 className="text-lg font-semibold text-base-content mb-4 flex items-center gap-2">
+                            <span className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <FaRunning className="text-primary text-sm" />
+                            </span>
+                            Basic Information
+                        </h2>
+                        <div className="space-y-4">
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaRunning className="text-primary" />
+                                    Marathon Title
+                                </label>
+                                <input
+                                    type="text"
+                                    name="marathonTitle"
+                                    value={marathonDetails.marathonTitle}
+                                    onChange={handleChange}
+                                    placeholder="Enter marathon title..."
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                    required
+                                />
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                        <FaMapMarkerAlt className="text-secondary" />
+                                        Location
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="location"
+                                        value={marathonDetails.location}
+                                        onChange={handleChange}
+                                        placeholder="City, Country"
+                                        className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                        <FaRuler className="text-accent" />
+                                        Running Distance
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="runningDistance"
+                                        value={marathonDetails.runningDistance}
+                                        onChange={handleChange}
+                                        placeholder="e.g., 42km, Half Marathon"
+                                        className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Section: Dates */}
+                    <div className="mb-8">
+                        <h2 className="text-lg font-semibold text-base-content mb-4 flex items-center gap-2">
+                            <span className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
+                                <FaCalendarAlt className="text-secondary text-sm" />
+                            </span>
+                            Event Dates
+                        </h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaCalendarAlt className="text-green-500" />
+                                    Registration Start
+                                </label>
+                                <DatePicker
+                                    selected={
+                                        marathonDetails.startRegistrationDate
+                                    }
+                                    onChange={(date) =>
+                                        handleDateChange(
+                                            date,
+                                            "startRegistrationDate"
+                                        )
+                                    }
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaCalendarAlt className="text-red-500" />
+                                    Registration End
+                                </label>
+                                <DatePicker
+                                    selected={
+                                        marathonDetails.endRegistrationDate
+                                    }
+                                    onChange={(date) =>
+                                        handleDateChange(
+                                            date,
+                                            "endRegistrationDate"
+                                        )
+                                    }
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaCalendarAlt className="text-primary" />
+                                    Marathon Date
+                                </label>
+                                <DatePicker
+                                    selected={marathonDetails.marathonStartDate}
+                                    onChange={(date) =>
+                                        handleDateChange(
+                                            date,
+                                            "marathonStartDate"
+                                        )
+                                    }
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Section: Details */}
+                    <div className="mb-8">
+                        <h2 className="text-lg font-semibold text-base-content mb-4 flex items-center gap-2">
+                            <span className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
+                                <FaAlignLeft className="text-accent text-sm" />
+                            </span>
+                            Details & Media
+                        </h2>
+                        <div className="space-y-4">
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaAlignLeft className="text-accent" />
+                                    Description
+                                </label>
+                                <textarea
+                                    name="description"
+                                    value={marathonDetails.description}
+                                    onChange={handleChange}
+                                    placeholder="Describe your marathon event..."
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all min-h-[120px] resize-none"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaImage className="text-info" />
+                                    Marathon Image URL
+                                </label>
+                                <input
+                                    type="url"
+                                    name="marathonImage"
+                                    value={marathonDetails.marathonImage}
+                                    onChange={handleChange}
+                                    placeholder="https://example.com/image.jpg"
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-100 text-base-content focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Section: Creator Info */}
+                    <div className="mb-8">
+                        <h2 className="text-lg font-semibold text-base-content mb-4 flex items-center gap-2">
+                            <span className="w-8 h-8 bg-info/10 rounded-lg flex items-center justify-center">
+                                <FaUser className="text-info text-sm" />
+                            </span>
+                            Creator Information
+                        </h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaEnvelope className="text-base-content/50" />
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={marathonDetails.email}
+                                    readOnly
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-200 text-base-content/60 cursor-not-allowed"
+                                />
+                            </div>
+                            <div>
+                                <label className="flex items-center gap-2 text-base-content/70 text-sm font-medium mb-2">
+                                    <FaUser className="text-base-content/50" />
+                                    Username
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={marathonDetails.username}
+                                    readOnly
+                                    className="w-full px-4 py-3 border border-base-300 rounded-xl bg-base-200 text-base-content/60 cursor-not-allowed"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {isSubmitting ? (
+                            <>
+                                <div className="w-5 h-5 border-2 border-white/30 rounded-full animate-spin border-t-white"></div>
+                                Adding Marathon...
+                            </>
+                        ) : (
+                            <>
+                                <FaPlus className="group-hover:rotate-90 transition-transform" />
+                                Add Marathon
+                            </>
+                        )}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };
