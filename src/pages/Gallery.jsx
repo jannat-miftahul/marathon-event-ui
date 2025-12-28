@@ -60,7 +60,9 @@ const Gallery = () => {
                             <h2 className="card-title text-lg sm:text-xl font-semibold">
                                 {item.title}
                             </h2>
-                            <p className="text-sm sm:text-base text-textSecondary">{item.description}</p>
+                            <p className="text-sm sm:text-base text-textSecondary">
+                                {item.description}
+                            </p>
                         </div>
                     </div>
                 ))}

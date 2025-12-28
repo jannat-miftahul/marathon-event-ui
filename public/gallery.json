@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "type": "photo",
+        "url": "https://i.ibb.co.com/Vjq3Y01/66250786d88a84-78124202.jpg",
+        "title": "Marathon 2024 Finish Line",
+        "description": "Runners crossing the finish line.",
+        "category": "Finish Line"
+    },
+    {
+        "id": 2,
+        "type": "video",
+        "url": "https://www.youtube.com/embed/BgV9r1IuOaE?si=zUzYVaNAhMyYjXsy",
+        "title": "Event Highlights 2024",
+        "description": "Watch the highlights from the marathon event.",
+        "category": "Highlights"
+    },
+    {
+        "id": 3,
+        "type": "photo",
+        "url": "https://i.ibb.co.com/zHMVyNw/silhouette-young-man-running-sprinting-600nw-1978910810.jpg",
+        "title": "Runners in Action",
+        "description": "Athletes pushing their limits on the racecourse.",
+        "category": "Action Shots"
+    },
+    {
+        "id": 4,
+        "type": "photo",
+        "url": "https://images.unsplash.com/photo-1750887722593-d3d328faaeb9?w=800",
+        "title": "Starting Line Energy",
+        "description": "The exciting moments before the race begins.",
+        "category": "Start Line"
+    },
+    {
+        "id": 5,
+        "type": "photo",
+        "url": "https://images.unsplash.com/photo-1714962962355-1035a90cb7d6?w=800",
+        "title": "Crowd Support",
+        "description": "Spectators cheering on the runners.",
+        "category": "Crowd"
+    },
+    {
+        "id": 6,
+        "type": "photo",
+        "url": "https://i.ibb.co.com/g4c7p96/marathon-runners-action-sunrise-group-competes-their-shadows-stretching-across-road-as-race-towards.jpg",
+        "title": "Morning Run",
+        "description": "Runners enjoying the early morning atmosphere.",
+        "category": "Action Shots"
+    },
+    {
+        "id": 7,
+        "type": "photo",
+        "url": "https://images.unsplash.com/photo-1714963145991-03e75c1cb473?w=800",
+        "title": "Victory Celebration",
+        "description": "Winner celebrating at the finish line.",
+        "category": "Finish Line"
+    },
+    {
+        "id": 8,
+        "type": "video",
+        "url": "https://www.youtube.com/embed/DHlrxm6m9vg?si=n3UdFxQCYqn2TW4A",
+        "title": "Training Montage",
+        "description": "Athletes preparing for the big race.",
+        "category": "Training"
+    },
+    {
+        "id": 9,
+        "type": "photo",
+        "url": "https://images.unsplash.com/photo-1557660559-42497f78035b?w=800",
+        "title": "Volunteer Support",
+        "description": "Volunteers helping runners along the course.",
+        "category": "Volunteers"
+    },
+    {
+        "id": 10,
+        "type": "photo",
+        "url": "https://plus.unsplash.com/premium_photo-1664304819212-911fd3b50a1a?w=800",
+        "title": "City Marathon View",
+        "description": "Scenic route through the city streets.",
+        "category": "Scenic"
+    },
+    {
+        "id": 11,
+        "type": "photo",
+        "url": "https://images.unsplash.com/photo-1714963145991-03e75c1cb473?w=800",
+        "title": "Medal Ceremony",
+        "description": "Top finishers receiving their medals.",
+        "category": "Awards"
+    },
+    {
+        "id": 12,
+        "type": "photo",
+        "url": "https://plus.unsplash.com/premium_photo-1745952614255-4d954575ebae?w=800",
+        "title": "Group Warm-up",
+        "description": "Runners stretching before the race.",
+        "category": "Start Line"
+    }
+]

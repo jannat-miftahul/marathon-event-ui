@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "Mike Johnson",
+        "time": "2:45:30",
+        "position": 1,
+        "category": "Men's",
+        "event": "Marathon 2024",
+        "country": "USA",
+        "bib": "M001",
+        "age": 28
+    },
+    {
+        "id": 2,
+        "name": "Sarah Smith",
+        "time": "3:05:10",
+        "position": 1,
+        "category": "Women's",
+        "event": "Marathon 2024",
+        "country": "UK",
+        "bib": "W001",
+        "age": 25
+    },
+    {
+        "id": 3,
+        "name": "Steve Brown",
+        "time": "2:48:45",
+        "position": 2,
+        "category": "Men's",
+        "event": "Marathon 2024",
+        "country": "Canada",
+        "bib": "M002",
+        "age": 31
+    },
+    {
+        "id": 4,
+        "name": "Emma Wilson",
+        "time": "3:12:20",
+        "position": 2,
+        "category": "Women's",
+        "event": "Marathon 2024",
+        "country": "Australia",
+        "bib": "W002",
+        "age": 27
+    },
+    {
+        "id": 5,
+        "name": "David Lee",
+        "time": "2:52:15",
+        "position": 3,
+        "category": "Men's",
+        "event": "Marathon 2024",
+        "country": "Germany",
+        "bib": "M003",
+        "age": 29
+    },
+    {
+        "id": 6,
+        "name": "Lisa Chen",
+        "time": "3:18:40",
+        "position": 3,
+        "category": "Women's",
+        "event": "Marathon 2024",
+        "country": "China",
+        "bib": "W003",
+        "age": 24
+    },
+    {
+        "id": 7,
+        "name": "James Williams",
+        "time": "2:55:12",
+        "position": 4,
+        "category": "Men's",
+        "event": "Marathon 2024",
+        "country": "France",
+        "bib": "M004",
+        "age": 33
+    },
+    {
+        "id": 8,
+        "name": "Maria Garcia",
+        "time": "3:22:55",
+        "position": 4,
+        "category": "Women's",
+        "event": "Marathon 2024",
+        "country": "Spain",
+        "bib": "W004",
+        "age": 26
+    },
+    {
+        "id": 9,
+        "name": "Robert Martinez",
+        "time": "2:58:30",
+        "position": 5,
+        "category": "Men's",
+        "event": "Marathon 2024",
+        "country": "Mexico",
+        "bib": "M005",
+        "age": 30
+    },
+    {
+        "id": 10,
+        "name": "Anna Kowalski",
+        "time": "3:25:18",
+        "position": 5,
+        "category": "Women's",
+        "event": "Marathon 2024",
+        "country": "Poland",
+        "bib": "W005",
+        "age": 28
+    },
+    {
+        "id": 11,
+        "name": "Kenji Tanaka",
+        "time": "3:01:45",
+        "position": 6,
+        "category": "Men's",
+        "event": "Marathon 2024",
+        "country": "Japan",
+        "bib": "M006",
+        "age": 27
+    },
+    {
+        "id": 12,
+        "name": "Sophie Anderson",
+        "time": "3:28:33",
+        "position": 6,
+        "category": "Women's",
+        "event": "Marathon 2024",
+        "country": "Sweden",
+        "bib": "W006",
+        "age": 29
+    }
+]
