@@ -12,31 +12,31 @@ const MyApplyList = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        if (user) {
+        const fetchRegistrations = async () => {
+            const query = new URLSearchParams({ userId: user.uid });
+            if (searchTitle) {
+                query.append("title", searchTitle);
+            }
+
+            // fetch(`https://marathon-event-api.vercel.app/registrations?email=${user.email}?${query.toString()}`)
+            //     .then((res) => res.json())
+            //     .then((data) => {
+            //         setRegistrations(data);
+            //     })
+            //     .catch((error) => {
+            //         console.error("Error:", error);
+            //     });
+
+            // * Using axios with custom hook
+            axiosSecure
+                .get(`/registrations?email=${user.email}&${query.toString()}`)
+                .then((res) => setRegistrations(res.data));
+        };
+
+        if (user?.email) {
             fetchRegistrations();
         }
-    }, [user.email, axiosSecure, searchTitle]);
-
-    const fetchRegistrations = () => {
-        const query = new URLSearchParams({ userId: user.uid });
-        if (searchTitle) {
-            query.append("title", searchTitle);
-        }
-
-        // fetch(`https://marathon-event-api.vercel.app/registrations?email=${user.email}?${query.toString()}`)
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         setRegistrations(data);
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error:", error);
-        //     });
-
-        // * Using axios with custom hook
-        axiosSecure
-            .get(`/registrations?email=${user.email}&${query.toString()}`)
-            .then((res) => setRegistrations(res.data));
-    };
+    }, [user, axiosSecure, searchTitle]);
 
     // const handleUpdateRegistration = (registration) => {
     //     setSelectedRegistration(registration);
