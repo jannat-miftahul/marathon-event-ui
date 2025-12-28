@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import logo from "../assets/logo.png";
 // import { Link } from "react-scroll";
 import ThemeToggle from "./ThemeToggle";
-import { PiPersonSimpleRunFill } from "react-icons/pi";
 
 const Navbar = () => {
     const { user, signOutUser } = useAuth();

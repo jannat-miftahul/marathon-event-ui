@@ -29,7 +29,7 @@ const Slider = () => {
             className="mySwiper"
         >
             <SwiperSlide>
-                <div className="w-full h-96">
+                <div className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
                     <img
                         className="w-full h-full object-cover"
                         src="https://i.ibb.co.com/VDG2tmc/151121-Marathon-01.jpg"
@@ -38,7 +38,7 @@ const Slider = () => {
                 </div>
             </SwiperSlide>
             <SwiperSlide>
-                <div className="w-full h-96">
+                <div className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
                     <img
                         className="w-full h-full object-cover"
                         src="https://i.ibb.co.com/t3zVcPy/i-E2e8-Qm-T5r-U75-D7-RGCs26-1200-80.jpg"
@@ -47,7 +47,7 @@ const Slider = () => {
                 </div>
             </SwiperSlide>
             <SwiperSlide>
-                <div className="w-full h-96">
+                <div className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
                     <img
                         className="w-full h-full object-cover"
                         src="https://i.ibb.co.com/QbX6wn6/marathon-header.jpg"
@@ -56,7 +56,7 @@ const Slider = () => {
                 </div>
             </SwiperSlide>
             <SwiperSlide>
-                <div className="w-full h-96">
+                <div className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
                     <img
                         className="w-full h-full object-cover"
                         src="https://i.ibb.co.com/B4G8h3D/sr-lcw-220924-199.jpg"
