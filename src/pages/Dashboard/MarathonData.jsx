@@ -4,10 +4,10 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import Modal from "../../components/Modal";
 import UpdateMarathonForm from "../../components/UpdateMarathonForm";
+import { FaEdit, FaTrash, FaRunning, FaUsers } from "react-icons/fa";
 
-const MarathonData = ({ marathon, marathons, setMarathons }) => {
+const MarathonData = ({ marathon, marathons, setMarathons, index }) => {
     const { _id } = marathon;
-    console.log("marathon id", _id);
 
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
     const [selectedMarathon, setSelectedMarathon] = useState({});
@@ -57,9 +57,12 @@ const MarathonData = ({ marathon, marathons, setMarathons }) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://marathon-event-api.vercel.app/marathons/${_id}`, {
-                    method: "DELETE",
-                })
+                fetch(
+                    `https://marathon-event-api.vercel.app/marathons/${_id}`,
+                    {
+                        method: "DELETE",
+                    }
+                )
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.deletedCount > 0) {
@@ -81,24 +84,60 @@ const MarathonData = ({ marathon, marathons, setMarathons }) => {
     };
 
     return (
-        <tr className="text-xs sm:text-sm lg:text-base">
-            <td className="py-2 px-1 sm:px-2">{marathons.indexOf(marathon) + 1}</td>
-            <td className="py-2 px-1 sm:px-2 max-w-[100px] sm:max-w-[150px] truncate">{marathon.marathonTitle}</td>
-            <td className="py-2 px-1 sm:px-2 hidden sm:table-cell">{marathon.marathonStartDate}</td>
-            <td className="py-2 px-1 sm:px-2 hidden md:table-cell">{marathon.location}</td>
-            <td className="py-2 px-1 sm:px-2">
-                <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+        <tr className="hover:bg-base-200/50 transition-colors">
+            <td className="py-4 px-4">
+                <span className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-sm font-semibold text-primary">
+                    {index + 1}
+                </span>
+            </td>
+            <td className="py-4 px-4">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <FaRunning className="text-secondary" />
+                    </div>
+                    <div>
+                        <p className="font-semibold text-base-content line-clamp-1">
+                            {marathon.marathonTitle}
+                        </p>
+                        <p className="text-xs text-base-content/50 sm:hidden">
+                            {marathon.marathonStartDate}
+                        </p>
+                    </div>
+                </div>
+            </td>
+            <td className="py-4 px-4 hidden sm:table-cell">
+                <span className="text-sm text-base-content/70">
+                    {marathon.marathonStartDate}
+                </span>
+            </td>
+            <td className="py-4 px-4 hidden md:table-cell">
+                <span className="text-sm text-base-content/70">
+                    {marathon.location}
+                </span>
+            </td>
+            <td className="py-4 px-4 hidden lg:table-cell">
+                <div className="flex items-center gap-2">
+                    <FaUsers className="text-base-content/50" />
+                    <span className="text-sm font-medium text-base-content">
+                        {marathon.totalRegistrationCount || 0}
+                    </span>
+                </div>
+            </td>
+            <td className="py-4 px-4">
+                <div className="flex items-center gap-2">
                     <button
                         onClick={() => handleUpdateMarathon(_id)}
-                        className="btn btn-xs sm:btn-sm bg-primary text-white px-2 sm:px-4 py-1 rounded-full hover:bg-secondary text-xs"
+                        className="p-2 bg-primary/10 text-primary rounded-lg hover:bg-primary hover:text-white transition-all"
+                        title="Edit"
                     >
-                        Edit
+                        <FaEdit className="text-sm" />
                     </button>
                     <button
                         onClick={() => handleDeleteMarathon(_id)}
-                        className="btn btn-xs sm:btn-sm bg-red-500 text-white px-2 sm:px-4 py-1 rounded-full hover:bg-red-600 text-xs"
+                        className="p-2 bg-red-500/10 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-all"
+                        title="Delete"
                     >
-                        Delete
+                        <FaTrash className="text-sm" />
                     </button>
                 </div>
             </td>
@@ -119,6 +158,7 @@ MarathonData.propTypes = {
     marathon: PropTypes.object.isRequired,
     marathons: PropTypes.array.isRequired,
     setMarathons: PropTypes.func.isRequired,
+    index: PropTypes.number.isRequired,
 };
 
 export default MarathonData;
