@@ -87,7 +87,10 @@ const AddMarathon = () => {
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-raleway font-semibold text-center mb-4 text-base-content">
                 Add Marathon
             </h1>
-            <form onSubmit={handleAddMarathon} className="bg-base-100 p-4 sm:p-6 rounded-lg border border-base-300 shadow-lg">
+            <form
+                onSubmit={handleAddMarathon}
+                className="bg-base-100 p-4 sm:p-6 rounded-lg border border-base-300 shadow-lg"
+            >
                 <div className="mb-3 sm:mb-4">
                     <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                         Marathon Title
@@ -103,7 +106,7 @@ const AddMarathon = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div className="mb-3 sm:mb-4">
-                        <label className="block text-textSecondary text-sm sm:text-base">
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                             Start Registration Date
                         </label>
                         <DatePicker
@@ -111,12 +114,12 @@ const AddMarathon = () => {
                             onChange={(date) =>
                                 handleDateChange(date, "startRegistrationDate")
                             }
-                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                             required
                         />
                     </div>
                     <div className="mb-3 sm:mb-4">
-                        <label className="block text-textSecondary text-sm sm:text-base">
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                             End Registration Date
                         </label>
                         <DatePicker
@@ -124,13 +127,13 @@ const AddMarathon = () => {
                             onChange={(date) =>
                                 handleDateChange(date, "endRegistrationDate")
                             }
-                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                             required
                         />
                     </div>
                 </div>
                 <div className="mb-3 sm:mb-4">
-                    <label className="block text-textSecondary text-sm sm:text-base">
+                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                         Marathon Start Date
                     </label>
                     <DatePicker
@@ -138,23 +141,25 @@ const AddMarathon = () => {
                         onChange={(date) =>
                             handleDateChange(date, "marathonStartDate")
                         }
-                        className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
                 <div className="mb-3 sm:mb-4">
-                    <label className="block text-textSecondary text-sm sm:text-base">Location</label>
+                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
+                        Location
+                    </label>
                     <input
                         type="text"
                         name="location"
                         value={marathonDetails.location}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-textSecondary">
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                         Running Distance
                     </label>
                     <input
@@ -162,22 +167,24 @@ const AddMarathon = () => {
                         name="runningDistance"
                         value={marathonDetails.runningDistance}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-textSecondary">Description</label>
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
+                        Description
+                    </label>
                     <textarea
                         name="description"
                         value={marathonDetails.description}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none min-h-[100px]"
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-textSecondary">
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                         Marathon Image URL
                     </label>
                     <input
@@ -185,37 +192,41 @@ const AddMarathon = () => {
                         name="marathonImage"
                         value={marathonDetails.marathonImage}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
 
-                <div className="flex justify-between gap-4 mb-4">
-                    <div className="flex-1">
-                        <label className="block text-textSecondary">Email</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
+                    <div>
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
+                            Email
+                        </label>
                         <input
                             type="email"
                             name="email"
                             value={marathonDetails.email}
                             readOnly
-                            className="w-full px-3 py-2 border rounded bg-gray-100"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-200 text-base-content/60 text-sm sm:text-base cursor-not-allowed"
                         />
                     </div>
-                    <div className="flex-1">
-                        <label className="block text-textSecondary">Username</label>
+                    <div>
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
+                            Username
+                        </label>
                         <input
                             type="text"
                             name="name"
-                            value={marathonDetails.name}
+                            value={marathonDetails.username}
                             readOnly
-                            className="w-full px-3 py-2 border rounded bg-gray-100"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-200 text-base-content/60 text-sm sm:text-base cursor-not-allowed"
                         />
                     </div>
                 </div>
 
                 <button
                     type="submit"
-                    className="btn bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary"
+                    className="btn btn-primary text-white px-8 py-2 rounded-lg hover:scale-105 transition-transform font-semibold"
                 >
                     Add Marathon
                 </button>
