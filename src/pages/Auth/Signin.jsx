@@ -47,15 +47,15 @@ const Signin = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 bg-base-200">
             <Helmet>
                 <title>Sign In | RunTrack</title>
             </Helmet>
 
-            <div className="card bg-white/60 w-full max-w-sm sm:max-w-md lg:max-w-lg shrink-0 rounded-none p-4 sm:p-6 lg:p-10">
+            <div className="card bg-base-100 shadow-xl w-full max-w-sm sm:max-w-md lg:max-w-lg shrink-0 rounded-lg p-4 sm:p-6 lg:p-10 border border-base-300">
                 <form onSubmit={handleSignin} className="card-body p-2 sm:p-4">
                     <div className="form-control">
-                        <h3 className="text-xl sm:text-2xl text-textPrimary font-raleway font-semibold text-center pb-4">
+                        <h3 className="text-xl sm:text-2xl text-base-content font-raleway font-semibold text-center pb-4">
                             Sign In Now!
                         </h3>
 
@@ -69,7 +69,7 @@ const Signin = () => {
                             type="email"
                             name="email"
                             placeholder="email"
-                            className="input input-bordered text-sm sm:text-base"
+                            className="input input-bordered bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:ring-1 focus:ring-primary"
                             required
                         />
                     </div>
@@ -84,11 +84,11 @@ const Signin = () => {
                             type="password"
                             name="password"
                             placeholder="Enter your password"
-                            className="input input-bordered text-sm sm:text-base"
+                            className="input input-bordered bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:ring-1 focus:ring-primary"
                             required
                         />
                         {error?.login && (
-                            <label className="label text-red-600 text-xs sm:text-sm">
+                            <label className="label text-error text-xs sm:text-sm">
                                 {error.login}
                             </label>
                         )}
@@ -96,7 +96,7 @@ const Signin = () => {
                         <label className="label">
                             <Link
                                 to="/auth/register"
-                                className="label-text-alt link link-hover text-xs sm:text-sm text-orange-500"
+                                className="label-text-alt link link-hover text-xs sm:text-sm text-secondary"
                             >
                                 Forgot password?
                             </Link>
@@ -104,7 +104,7 @@ const Signin = () => {
                     </div>
 
                     <div className="form-control mt-6 space-y-2">
-                        <button className="btn btn-outline text-secondary px-6 py-2 rounded-full">
+                        <button className="btn btn-primary text-primary-content px-6 py-2 rounded-full hover:opacity-90">
                             Sign In
                         </button>
 
@@ -112,8 +112,8 @@ const Signin = () => {
                         <GoogleLogin />
                     </div>
                 </form>
-                <p className="text-center">
-                    Already Have An Account?{" "}
+                <p className="text-center text-base-content">
+                    Don&apos;t Have An Account?{" "}
                     <Link
                         to="/auth/register"
                         className="text-secondary font-semibold hover:underline"

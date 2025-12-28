@@ -84,12 +84,12 @@ const AddMarathon = () => {
                 <title>RunTrack | Add Marathon</title>
             </Helmet>
 
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-raleway font-semibold text-center mb-4">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-raleway font-semibold text-center mb-4 text-base-content">
                 Add Marathon
             </h1>
-            <form onSubmit={handleAddMarathon}>
+            <form onSubmit={handleAddMarathon} className="bg-base-100 p-4 sm:p-6 rounded-lg border border-base-300 shadow-lg">
                 <div className="mb-3 sm:mb-4">
-                    <label className="block text-textSecondary text-sm sm:text-base">
+                    <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                         Marathon Title
                     </label>
                     <input
@@ -97,7 +97,7 @@ const AddMarathon = () => {
                         name="marathonTitle"
                         value={marathonDetails.marathonTitle}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                        className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                         required
                     />
                 </div>

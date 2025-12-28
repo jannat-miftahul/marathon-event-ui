@@ -69,48 +69,48 @@ const MarathonRegister = () => {
         <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-6 sm:gap-8 items-center px-4 sm:px-6 lg:px-8 xl:px-0 py-8 sm:py-10 lg:py-12">
             {/* Register for marathon */}
             <div className="flex-1 w-full max-w-3xl p-2 sm:p-4">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 text-base-content">
                     Register for {marathonTitle}
                 </h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="bg-base-100 p-4 sm:p-6 rounded-lg border border-base-300 shadow-lg">
                     <div className="mb-3 sm:mb-4">
-                        <label className="block text-textSecondary text-sm sm:text-base">Email</label>
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">Email</label>
                         <input
                             type="email"
                             name="email"
                             value={registrationDetails.email}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-200 text-base-content/70 text-sm sm:text-base"
                             readOnly
                         />
                     </div>
                     <div className="mb-3 sm:mb-4">
-                        <label className="block text-textSecondary text-sm sm:text-base">
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                             Marathon Title
                         </label>
                         <input
                             type="text"
                             name="marathonTitle"
                             value={marathonTitle}
-                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-200 text-base-content/70 text-sm sm:text-base"
                             readOnly
                         />
                     </div>
                     <div className="mb-3 sm:mb-4">
-                        <label className="block text-textSecondary text-sm sm:text-base">
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                             Marathon Start Date
                         </label>
                         <input
                             type="text"
                             name="marathonStartDate"
                             value={marathonStartDate}
-                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-200 text-base-content/70 text-sm sm:text-base"
                             readOnly
                         />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <div className="mb-3 sm:mb-4">
-                            <label className="block text-textSecondary text-sm sm:text-base">
+                            <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                                 First Name
                             </label>
                             <input
@@ -118,24 +118,24 @@ const MarathonRegister = () => {
                                 name="firstName"
                                 value={registrationDetails.firstName}
                                 onChange={handleChange}
-                                className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                                className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                                 required
                             />
                         </div>
                         <div className="mb-3 sm:mb-4">
-                            <label className="block text-textSecondary text-sm sm:text-base">Last Name</label>
+                            <label className="block text-base-content/70 text-sm sm:text-base mb-1">Last Name</label>
                             <input
                                 type="text"
                                 name="lastName"
                                 value={registrationDetails.lastName}
                                 onChange={handleChange}
-                                className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                                className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                                 required
                             />
                         </div>
                     </div>
                     <div className="mb-3 sm:mb-4">
-                        <label className="block text-textSecondary text-sm sm:text-base">
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                             Contact Number
                         </label>
                         <input
@@ -143,24 +143,24 @@ const MarathonRegister = () => {
                             name="contactNumber"
                             value={registrationDetails.contactNumber}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:outline-none"
                             required
                         />
                     </div>
                     <div className="mb-3 sm:mb-4">
-                        <label className="block text-textSecondary text-sm sm:text-base">
+                        <label className="block text-base-content/70 text-sm sm:text-base mb-1">
                             Additional Info
                         </label>
                         <textarea
                             name="additionalInfo"
                             value={registrationDetails.additionalInfo}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border rounded"
+                            className="w-full px-3 py-2 border border-base-300 rounded bg-base-100 text-base-content focus:border-primary focus:outline-none"
                         />
                     </div>
                     <button
                         type="submit"
-                        className="btn bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary"
+                        className="btn btn-primary text-primary-content px-6 py-2 rounded-full hover:opacity-90"
                     >
                         Register
                     </button>
@@ -168,8 +168,8 @@ const MarathonRegister = () => {
             </div>
 
             {/* Image */}
-            <div className="flex-1">
-                <img src={marathonImage} alt="" />
+            <div className="flex-1 hidden lg:block">
+                <img src={marathonImage} alt="" className="rounded-lg shadow-lg" />
             </div>
         </div>
     );

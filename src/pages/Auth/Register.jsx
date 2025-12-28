@@ -56,15 +56,15 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 bg-base-200">
             <Helmet>
                 <title>Register | RunTrack</title>
             </Helmet>
 
-            <div className="card bg-white/60 w-full max-w-sm sm:max-w-md lg:max-w-lg shrink-0 rounded-none p-4 sm:p-6 lg:p-10">
+            <div className="card bg-base-100 shadow-xl w-full max-w-sm sm:max-w-md lg:max-w-lg shrink-0 rounded-lg p-4 sm:p-6 lg:p-10 border border-base-300">
                 <form onSubmit={handleRegister} className="card-body p-2 sm:p-4">
                     <div className="form-control">
-                        <h3 className="text-xl sm:text-2xl text-textPrimary font-raleway font-semibold text-center pb-4">
+                        <h3 className="text-xl sm:text-2xl text-base-content font-raleway font-semibold text-center pb-4">
                             Register Now!
                         </h3>
                         {/* name */}
@@ -77,11 +77,11 @@ const Register = () => {
                             type="text"
                             name="name"
                             placeholder="Enter your name"
-                            className="input input-bordered text-sm sm:text-base"
+                            className="input input-bordered bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:ring-1 focus:ring-primary"
                             required
                         />
                         {error.name && (
-                            <label className="label text-red-600 text-xs sm:text-sm">
+                            <label className="label text-error text-xs sm:text-sm">
                                 {error.name}
                             </label>
                         )}
@@ -96,11 +96,11 @@ const Register = () => {
                             type="url"
                             name="photoUrl"
                             placeholder="Enter your photo URL"
-                            className="input input-bordered text-sm sm:text-base"
+                            className="input input-bordered bg-base-100 text-base-content text-sm sm:text-base focus:border-primary focus:ring-1 focus:ring-primary"
                             required
                         />
                         {error.photoUrl && (
-                            <label className="label text-red-600 text-sm">
+                            <label className="label text-error text-sm">
                                 {error.photoUrl}
                             </label>
                         )}
@@ -114,7 +114,7 @@ const Register = () => {
                             type="email"
                             name="email"
                             placeholder="email"
-                            className="input input-bordered"
+                            className="input input-bordered bg-base-100 text-base-content focus:border-primary focus:ring-1 focus:ring-primary"
                             required
                         />
                     </div>
@@ -129,7 +129,7 @@ const Register = () => {
                             type="password"
                             name="password"
                             placeholder="Enter your password"
-                            className="input input-bordered"
+                            className="input input-bordered bg-base-100 text-base-content focus:border-primary focus:ring-1 focus:ring-primary"
                             required
                         />
                         <div
@@ -137,21 +137,21 @@ const Register = () => {
                             // onClick={togglePasswordVisibility}
                         ></div>
                         {error.password && (
-                            <p className="text-red-600 text-sm mt-2">
+                            <p className="text-error text-sm mt-2">
                                 {error.password}
                             </p>
                         )}
                     </div>
 
                     <div className="form-control mt-6 space-y-2">
-                        <button className="btn btn-outline text-secondary px-6 py-2 rounded-full">
+                        <button className="btn btn-primary text-primary-content px-6 py-2 rounded-full hover:opacity-90">
                             Register
                         </button>
                         {/* sign up with google */}
                         <GoogleLogin />
                     </div>
                 </form>
-                <p className="text-center">
+                <p className="text-center text-base-content">
                     Already Have An Account?{" "}
                     <Link
                         to="/auth/signin"

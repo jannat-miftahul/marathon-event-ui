@@ -6,17 +6,11 @@ export default {
     theme: {
         extend: {
             colors: {
-                    // primary: "#3da35d",
-                //     secondary: "#57cc99",
-                // primary: "#1c5a1c",
-                // secondary: "#77380a",
-                // accent: "#80ed99",
-                background: "#f0fff1",
-                // backgroundDark: "#e8f1f2",
-                //     accent: "#80ed99",
-
-                // textPrimary: "#263238",
-                textSecondary: "#adb5bd",
+                background: "var(--background)",
+                backgroundDark: "var(--background-dark)",
+                textPrimary: "var(--text-primary)",
+                textSecondary: "var(--text-secondary)",
+                textGray: "var(--text-gray)",
             },
 
             fontFamily: {
@@ -30,29 +24,74 @@ export default {
         themes: [
             {
                 light: {
-                    primary: "#1c5a1c",
-                    secondary: "#77380a",
-                    accent: "#80ed99",
-                    // background: "#FAF3E0",
-                    // background: "#f0fff1",
-                    backgroundDark: "#e8f1f2",
-                    textPrimary: "#333D29",
-                    textSecondary: "#adb5bd",
-                    neutral: "#f5f5f5",
-                    "base-100": "#ffffff",
+                    // Main brand colors - vibrant greens for marathon/running theme
+                    primary: "#16a34a",          // Vibrant green
+                    "primary-content": "#ffffff",
+                    secondary: "#ea580c",         // Warm orange for CTAs
+                    "secondary-content": "#ffffff",
+                    accent: "#22c55e",            // Light green accent
+                    "accent-content": "#ffffff",
+                    
+                    // Neutral & base colors
+                    neutral: "#374151",
+                    "neutral-content": "#f9fafb",
+                    "base-100": "#ffffff",        // Main background
+                    "base-200": "#f3f4f6",        // Secondary background
+                    "base-300": "#e5e7eb",        // Tertiary background
+                    "base-content": "#1f2937",    // Main text
+                    
+                    // Semantic colors
+                    info: "#3b82f6",
+                    success: "#22c55e",
+                    warning: "#f59e0b",
+                    error: "#ef4444",
+                    
+                    // Custom CSS variables for extended colors
+                    "--background": "#f8faf8",
+                    "--background-dark": "#e8f5e9",
+                    "--text-primary": "#1f2937",
+                    "--text-secondary": "#6b7280",
+                    "--text-gray": "#9ca3af",
+                    
+                    // Rounded corners
+                    "--rounded-box": "0.75rem",
+                    "--rounded-btn": "0.5rem",
                 },
             },
             {
                 dark: {
-                    primary: "#228B22",
-                    secondary: "#8B4513",
-                    accent: "#80ed99",
-                    // background: "#1f2937",
-                    backgroundDark: "#333D29",
-                    textPrimary: "#f0fff1",
-                    textSecondary: "#adb5bd",
-                    neutral: "#2a2e37",
-                    "base-100": "#1f2937",
+                    // Main brand colors - adjusted for dark mode visibility
+                    primary: "#22c55e",           // Brighter green for dark bg
+                    "primary-content": "#052e16",
+                    secondary: "#fb923c",          // Brighter orange
+                    "secondary-content": "#431407",
+                    accent: "#4ade80",             // Light green accent
+                    "accent-content": "#052e16",
+                    
+                    // Neutral & base colors
+                    neutral: "#1f2937",
+                    "neutral-content": "#d1d5db",
+                    "base-100": "#111827",         // Main background (darker)
+                    "base-200": "#1f2937",         // Secondary background
+                    "base-300": "#374151",         // Tertiary background
+                    "base-content": "#f3f4f6",     // Main text
+                    
+                    // Semantic colors
+                    info: "#60a5fa",
+                    success: "#4ade80",
+                    warning: "#fbbf24",
+                    error: "#f87171",
+                    
+                    // Custom CSS variables for extended colors
+                    "--background": "#111827",
+                    "--background-dark": "#0d1117",
+                    "--text-primary": "#f3f4f6",
+                    "--text-secondary": "#9ca3af",
+                    "--text-gray": "#6b7280",
+                    
+                    // Rounded corners
+                    "--rounded-box": "0.75rem",
+                    "--rounded-btn": "0.5rem",
                 },
             },
         ],
