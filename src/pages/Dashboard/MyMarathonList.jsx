@@ -29,41 +29,42 @@ const MyMarathonList = () => {
     }, [user.email, axiosSecure]);
 
     return (
-        <div className="mx-auto p-4">
+        <div className="mx-auto p-2 sm:p-4">
             <Helmet>
                 <title>My Marathon List | RunTrack</title>
             </Helmet>
 
-            <h2 className="text-3xl font-raleway font-semibold text-center mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-raleway font-semibold text-center mb-4">
                 My Marathon List
             </h2>
             <div className="overflow-x-auto">
-                <table className="table table-zebra">
+                <table className="table table-zebra text-xs sm:text-sm lg:text-base min-w-full">
                     <thead>
-                        <tr className="max-w-xl mx-auto flex justify-start items-start space-x-10">
-                            <th></th>
-                            <th>Title</th>
-                            <th>Starts</th>
-                            <th>Location</th>
+                        <tr>
+                            <th className="text-xs sm:text-sm">#</th>
+                            <th className="text-xs sm:text-sm">Title</th>
+                            <th className="text-xs sm:text-sm hidden sm:table-cell">Starts</th>
+                            <th className="text-xs sm:text-sm hidden md:table-cell">Location</th>
+                            <th className="text-xs sm:text-sm">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {marathons.length === 0 && (
-                                <td colSpan="8" className="text-center">
+                        {marathons.length === 0 && (
+                            <tr>
+                                <td colSpan="5" className="text-center py-4">
                                     No Marathons found
                                 </td>
-                            )}
+                            </tr>
+                        )}
 
-                            {marathons.map((marathon) => (
-                                <MarathonData
-                                    key={marathon._id}
-                                    marathon={marathon}
-                                    marathons={marathons}
-                                    setMarathons={setMarathons}
-                                ></MarathonData>
-                            ))}
-                        </tr>
+                        {marathons.map((marathon) => (
+                            <MarathonData
+                                key={marathon._id}
+                                marathon={marathon}
+                                marathons={marathons}
+                                setMarathons={setMarathons}
+                            ></MarathonData>
+                        ))}
                     </tbody>
                 </table>
             </div>

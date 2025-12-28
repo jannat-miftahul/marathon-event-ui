@@ -81,22 +81,22 @@ const MarathonData = ({ marathon, marathons, setMarathons }) => {
     };
 
     return (
-        <div className="max-w-xl mx-auto flex justify-start items-start space-x-10">
-            <td>{marathons.indexOf(marathon) + 1}</td>
-            <td>{marathon.marathonTitle}</td>
-            <td>{marathon.marathonStartDate}</td>
-            <td>{marathon.location}</td>
-            <td>
-                <div className="flex gap-4">
+        <tr className="text-xs sm:text-sm lg:text-base">
+            <td className="py-2 px-1 sm:px-2">{marathons.indexOf(marathon) + 1}</td>
+            <td className="py-2 px-1 sm:px-2 max-w-[100px] sm:max-w-[150px] truncate">{marathon.marathonTitle}</td>
+            <td className="py-2 px-1 sm:px-2 hidden sm:table-cell">{marathon.marathonStartDate}</td>
+            <td className="py-2 px-1 sm:px-2 hidden md:table-cell">{marathon.location}</td>
+            <td className="py-2 px-1 sm:px-2">
+                <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                     <button
                         onClick={() => handleUpdateMarathon(_id)}
-                        className="btn bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary"
+                        className="btn btn-xs sm:btn-sm bg-primary text-white px-2 sm:px-4 py-1 rounded-full hover:bg-secondary text-xs"
                     >
                         Edit
                     </button>
                     <button
                         onClick={() => handleDeleteMarathon(_id)}
-                        className="btn bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary"
+                        className="btn btn-xs sm:btn-sm bg-red-500 text-white px-2 sm:px-4 py-1 rounded-full hover:bg-red-600 text-xs"
                     >
                         Delete
                     </button>
@@ -111,7 +111,7 @@ const MarathonData = ({ marathon, marathons, setMarathons }) => {
                     />
                 </Modal>
             )}
-        </div>
+        </tr>
     );
 };
 

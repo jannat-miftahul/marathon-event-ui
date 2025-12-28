@@ -33,8 +33,8 @@ const MarathonDetails = () => {
 
     const timerProps = {
         isPlaying: true,
-        size: 120,
-        strokeWidth: 6,
+        size: typeof window !== 'undefined' && window.innerWidth < 640 ? 70 : 120,
+        strokeWidth: typeof window !== 'undefined' && window.innerWidth < 640 ? 4 : 6,
     };
     const renderTime = (dimension, time) => {
         return (
@@ -56,33 +56,33 @@ const MarathonDetails = () => {
     const daysDuration = days * daySeconds;
 
     return (
-        <div className="max-w-screen-xl mx-auto p-4 space-y-2 px-6 lg:px-0  py-12">
+        <div className="max-w-screen-xl mx-auto p-4 space-y-2 sm:space-y-3 px-4 sm:px-6 lg:px-8 xl:px-0 py-8 sm:py-10 lg:py-12">
             <Helmet>
                 <title>RunTrack | {marathonTitle}</title>
             </Helmet>
 
-            <h1 className="text-3xl font-raleway font-semibold mb-4">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-raleway font-semibold mb-4">
                 {marathonTitle}
             </h1>
             <img
                 src={marathonImage}
                 alt="Marathon"
-                className="w-full h-72 object-cover mb-4"
+                className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover mb-4 rounded-lg"
             />
-            <p className="text-lg">Location: {location}</p>
-            <p className="text-lg">
+            <p className="text-sm sm:text-base lg:text-lg">Location: {location}</p>
+            <p className="text-sm sm:text-base lg:text-lg">
                 Registration Dates: {startRegistrationDate} -{" "}
                 {endRegistrationDate}
             </p>
-            <p className="text-lg">Marathon Date: {marathonStartDate}</p>
-            <p className="text-lg">
+            <p className="text-sm sm:text-base lg:text-lg">Marathon Date: {marathonStartDate}</p>
+            <p className="text-sm sm:text-base lg:text-lg">
                 Total Registrations: {totalRegistrationCount}
             </p>
-            <p className="text-lg">Running Distance: {runningDistance}</p>
-            <p className="text-lg">Description: {description}</p>
+            <p className="text-sm sm:text-base lg:text-lg">Running Distance: {runningDistance}</p>
+            <p className="text-sm sm:text-base lg:text-lg">Description: {description}</p>
 
             {/* CountdownCircleTimer component */}
-            <div className="flex gap-4 py-2">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-4 py-2">
                 <CountdownCircleTimer
                     {...timerProps}
                     colors="#7E2E84"

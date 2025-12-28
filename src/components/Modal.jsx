@@ -2,9 +2,12 @@ import PropTypes from "prop-types";
 
 const Modal = ({ children, onClose }) => {
     return (
-        <div className="fixed inset-0 bg-textSecondary bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-4 rounded shadow-lg relative">
-                <button onClick={onClose} className="absolute top-2 right-2">
+        <div className="fixed inset-0 bg-textSecondary bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg relative w-full max-w-[95vw] sm:max-w-md lg:max-w-lg max-h-[90vh] overflow-y-auto">
+                <button 
+                    onClick={onClose} 
+                    className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center text-xl hover:bg-gray-100 rounded-full transition-colors"
+                >
                     &times;
                 </button>
                 {children}

@@ -89,17 +89,17 @@ const Navbar = () => {
 
     return (
         <nav className="bg-background sticky top-0 backdrop-blur-md bg-opacity-40 z-10">
-            <div className="navbar max-w-screen-xl mx-auto py-2 px-0">
+            <div className="navbar max-w-screen-xl mx-auto py-2 px-4 sm:px-6 lg:px-8 xl:px-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div
                             tabIndex={0}
                             role="button"
-                            className="btn btn-ghost lg:hidden"
+                            className="btn btn-ghost lg:hidden p-1 sm:p-2"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
+                                className="h-5 w-5 sm:h-6 sm:w-6"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -121,15 +121,15 @@ const Navbar = () => {
                     </div>
                     <Link
                         to="/"
-                        className="text-xl text-textPrimary md:text-2xl font-bold flex items-center gap-2"
+                        className="text-lg sm:text-xl lg:text-2xl text-textPrimary font-bold flex items-center gap-1 sm:gap-2"
                     >
                         <img
                             src={logo}
                             alt="Logo"
-                            className="w-12 h-12 lg:w-16 lg:h-16"
+                            className="w-8 h-8 sm:w-10 sm:h-10 lg:w-16 lg:h-16"
                         />
-                        <h2 className="font-raleway text-secondary uppercase">
-                            Run<span className=" text-primary">Track</span>
+                        <h2 className="font-raleway text-secondary uppercase text-sm sm:text-base lg:text-xl">
+                            Run<span className="text-primary">Track</span>
                         </h2>
                     </Link>
                 </div>
@@ -138,45 +138,45 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end space-x-4">
+                <div className="navbar-end gap-1 sm:gap-2 lg:gap-4">
                     <ThemeToggle />
 
                     <div>
                         {user && user?.email ? (
-                            <div className=" flex items-center gap-4">
-                                <div className="flex flex-col items-center">
+                            <div className="flex items-center gap-1 sm:gap-2 lg:gap-4">
+                                <div className="hidden sm:flex flex-col items-center">
                                     <img
                                         src={
                                             user?.photoURL ||
                                             "https://i.ibb.co.com/P1n2z8D/profile-icon-design-free-vector.jpg"
                                         }
                                         alt="user"
-                                        className="w-10 h-10 rounded-full"
+                                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
                                     />
-                                    <p className="text-sm">
+                                    <p className="text-xs sm:text-sm hidden md:block">
                                         {user?.displayName}
                                     </p>
                                 </div>
 
                                 <button
                                     onClick={handleSignout}
-                                    className="btn btn-outline text-secondary hover:bg-secondary"
+                                    className="btn btn-outline text-secondary hover:bg-secondary btn-xs sm:btn-sm lg:btn-md"
                                 >
                                     Log Out
                                 </button>
                             </div>
                         ) : (
-                            <div className=" flex items-center gap-4">
+                            <div className="flex items-center gap-1 sm:gap-2 lg:gap-4">
                                 <NavLink
                                     to="/auth/register"
-                                    className="btn btn-outline text-secondary hover:bg-secondary"
+                                    className="btn btn-outline text-secondary hover:bg-secondary btn-xs sm:btn-sm lg:btn-md"
                                 >
                                     Register
                                 </NavLink>
 
                                 <NavLink
                                     to="/auth/signin"
-                                    className="btn btn-outline text-secondary hover:bg-secondary"
+                                    className="btn btn-outline text-secondary hover:bg-secondary btn-xs sm:btn-sm lg:btn-md"
                                 >
                                     Sign In
                                 </NavLink>

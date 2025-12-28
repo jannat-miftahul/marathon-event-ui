@@ -47,21 +47,21 @@ const Signin = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-6 lg:px-0  py-12">
+        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
             <Helmet>
                 <title>Sign In | RunTrack</title>
             </Helmet>
 
-            <div className="card bg-white/60 w-full max-w-lg shrink-0 rounded-none p-10">
-                <form onSubmit={handleSignin} className="card-body">
+            <div className="card bg-white/60 w-full max-w-sm sm:max-w-md lg:max-w-lg shrink-0 rounded-none p-4 sm:p-6 lg:p-10">
+                <form onSubmit={handleSignin} className="card-body p-2 sm:p-4">
                     <div className="form-control">
-                        <h3 className="text-2xl text-textPrimary font-raleway font-semibold  text-center pb-4">
+                        <h3 className="text-xl sm:text-2xl text-textPrimary font-raleway font-semibold text-center pb-4">
                             Sign In Now!
                         </h3>
 
                         {/* email */}
                         <label className="label">
-                            <span className="label-text font-semibold">
+                            <span className="label-text font-semibold text-sm sm:text-base">
                                 Email
                             </span>
                         </label>
@@ -69,14 +69,14 @@ const Signin = () => {
                             type="email"
                             name="email"
                             placeholder="email"
-                            className="input input-bordered"
+                            className="input input-bordered text-sm sm:text-base"
                             required
                         />
                     </div>
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text font-semibold">
+                            <span className="label-text font-semibold text-sm sm:text-base">
                                 Password
                             </span>
                         </label>
@@ -84,11 +84,11 @@ const Signin = () => {
                             type="password"
                             name="password"
                             placeholder="Enter your password"
-                            className="input input-bordered"
+                            className="input input-bordered text-sm sm:text-base"
                             required
                         />
                         {error?.login && (
-                            <label className="label text-red-600 text-sm">
+                            <label className="label text-red-600 text-xs sm:text-sm">
                                 {error.login}
                             </label>
                         )}
@@ -96,7 +96,7 @@ const Signin = () => {
                         <label className="label">
                             <Link
                                 to="/auth/register"
-                                className="label-text-alt link link-hover text-sm text-orange-500"
+                                className="label-text-alt link link-hover text-xs sm:text-sm text-orange-500"
                             >
                                 Forgot password?
                             </Link>

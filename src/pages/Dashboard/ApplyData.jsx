@@ -84,25 +84,23 @@ const ApplyData = ({ registration, registrations, setRegistrations }) => {
     };
 
     return (
-        <div className="max-w-xl mx-auto flex justify-start items-start space-x-10">
-            <td>{registrations.indexOf(registration) + 1}</td>
-            <td>{registration.marathonTitle}</td>
-            <td>{registration.marathonStartDate}</td>
-            <td>{registration.firstName}</td>
-            <td>{registration.lastName}</td>
-            <td>{registration.contactNumber}</td>
-            <td>{registration.additionalInfo}</td>
-            <td>
-                <div className="flex gap-4">
+        <tr className="text-xs sm:text-sm lg:text-base">
+            <td className="py-2 px-1 sm:px-2">{registrations.indexOf(registration) + 1}</td>
+            <td className="py-2 px-1 sm:px-2 max-w-[80px] sm:max-w-[120px] truncate">{registration.marathonTitle}</td>
+            <td className="py-2 px-1 sm:px-2 hidden sm:table-cell">{registration.marathonStartDate}</td>
+            <td className="py-2 px-1 sm:px-2 hidden md:table-cell">{registration.firstName} {registration.lastName}</td>
+            <td className="py-2 px-1 sm:px-2 hidden lg:table-cell">{registration.contactNumber}</td>
+            <td className="py-2 px-1 sm:px-2">
+                <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                     <button
                         onClick={() => handleUpdateRegistration(_id)}
-                        className="btn bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary"
+                        className="btn btn-xs sm:btn-sm bg-primary text-white px-2 sm:px-4 py-1 rounded-full hover:bg-secondary text-xs"
                     >
                         Edit
                     </button>
                     <button
                         onClick={() => handleDeleteMarathon(_id)}
-                        className="btn bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary"
+                        className="btn btn-xs sm:btn-sm bg-red-500 text-white px-2 sm:px-4 py-1 rounded-full hover:bg-red-600 text-xs"
                     >
                         Delete
                     </button>
@@ -117,7 +115,7 @@ const ApplyData = ({ registration, registrations, setRegistrations }) => {
                     />
                 </Modal>
             )}
-        </div>
+        </tr>
     );
 };
 

@@ -79,17 +79,17 @@ const AddMarathon = () => {
     };
 
     return (
-        <div className="max-w-3xl mx-auto p-4">
+        <div className="max-w-3xl mx-auto p-2 sm:p-4">
             <Helmet>
                 <title>RunTrack | Add Marathon</title>
             </Helmet>
 
-            <h1 className="text-3xl font-raleway font-semibold text-center mb-4">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-raleway font-semibold text-center mb-4">
                 Add Marathon
             </h1>
             <form onSubmit={handleAddMarathon}>
-                <div className="mb-4">
-                    <label className="block text-textSecondary">
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-textSecondary text-sm sm:text-base">
                         Marathon Title
                     </label>
                     <input
@@ -97,13 +97,13 @@ const AddMarathon = () => {
                         name="marathonTitle"
                         value={marathonDetails.marathonTitle}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 border rounded text-sm sm:text-base"
                         required
                     />
                 </div>
-                <div className="flex gap-4">
-                    <div className="mb-4">
-                        <label className="block text-textSecondary">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="mb-3 sm:mb-4">
+                        <label className="block text-textSecondary text-sm sm:text-base">
                             Start Registration Date
                         </label>
                         <DatePicker
@@ -111,12 +111,12 @@ const AddMarathon = () => {
                             onChange={(date) =>
                                 handleDateChange(date, "startRegistrationDate")
                             }
-                            className="w-full px-3 py-2 border rounded"
+                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
                             required
                         />
                     </div>
-                    <div className="mb-4">
-                        <label className="block text-textSecondary">
+                    <div className="mb-3 sm:mb-4">
+                        <label className="block text-textSecondary text-sm sm:text-base">
                             End Registration Date
                         </label>
                         <DatePicker
@@ -124,13 +124,13 @@ const AddMarathon = () => {
                             onChange={(date) =>
                                 handleDateChange(date, "endRegistrationDate")
                             }
-                            className="w-full px-3 py-2 border rounded"
+                            className="w-full px-3 py-2 border rounded text-sm sm:text-base"
                             required
                         />
                     </div>
                 </div>
-                <div className="mb-4">
-                    <label className="block text-textSecondary">
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-textSecondary text-sm sm:text-base">
                         Marathon Start Date
                     </label>
                     <DatePicker
@@ -138,12 +138,12 @@ const AddMarathon = () => {
                         onChange={(date) =>
                             handleDateChange(date, "marathonStartDate")
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 border rounded text-sm sm:text-base"
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-textSecondary">Location</label>
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-textSecondary text-sm sm:text-base">Location</label>
                     <input
                         type="text"
                         name="location"

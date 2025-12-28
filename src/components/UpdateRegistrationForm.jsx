@@ -19,52 +19,55 @@ const UpdateRegistrationForm = ({ registration, onSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="w-96">
-            <div className="mb-4">
-                <label className="block text-textSecondary">First Name</label>
-                <input
-                    type="text"
-                    name="firstName"
-                    value={updatedRegistration.firstName}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded"
-                    required
-                />
+        <form onSubmit={handleSubmit} className="w-full">
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center">Update Registration</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-textSecondary text-sm sm:text-base">First Name</label>
+                    <input
+                        type="text"
+                        name="firstName"
+                        value={updatedRegistration.firstName}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                        required
+                    />
+                </div>
+                <div className="mb-3 sm:mb-4">
+                    <label className="block text-textSecondary text-sm sm:text-base">Last Name</label>
+                    <input
+                        type="text"
+                        name="lastName"
+                        value={updatedRegistration.lastName}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border rounded text-sm sm:text-base"
+                        required
+                    />
+                </div>
             </div>
-            <div className="mb-4">
-                <label className="block text-textSecondary">Last Name</label>
-                <input
-                    type="text"
-                    name="lastName"
-                    value={updatedRegistration.lastName}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded"
-                    required
-                />
-            </div>
-            <div className="mb-4">
-                <label className="block text-textSecondary">Contact Number</label>
+            <div className="mb-3 sm:mb-4">
+                <label className="block text-textSecondary text-sm sm:text-base">Contact Number</label>
                 <input
                     type="text"
                     name="contactNumber"
                     value={updatedRegistration.contactNumber}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded"
+                    className="w-full px-3 py-2 border rounded text-sm sm:text-base"
                     required
                 />
             </div>
-            <div className="mb-4">
-                <label className="block text-textSecondary">Additional Info</label>
+            <div className="mb-3 sm:mb-4">
+                <label className="block text-textSecondary text-sm sm:text-base">Additional Info</label>
                 <textarea
                     name="additionalInfo"
                     value={updatedRegistration.additionalInfo}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded"
+                    className="w-full px-3 py-2 border rounded text-sm sm:text-base"
                 />
             </div>
             <button
                 type="submit"
-                className="btn bg-primary text-white px-6 py-2 rounded-full"
+                className="btn bg-primary text-white px-4 sm:px-6 py-2 rounded-full hover:bg-secondary w-full sm:w-auto text-sm sm:text-base"
             >
                 Update Registration
             </button>

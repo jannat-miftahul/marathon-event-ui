@@ -56,20 +56,20 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-6 lg:px-0  py-12">
+        <div className="min-h-screen flex flex-col lg:flex-row-reverse justify-center items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
             <Helmet>
                 <title>Register | RunTrack</title>
             </Helmet>
 
-            <div className="card bg-white/60 w-full max-w-lg shrink-0 rounded-none p-10">
-                <form onSubmit={handleRegister} className="card-body">
+            <div className="card bg-white/60 w-full max-w-sm sm:max-w-md lg:max-w-lg shrink-0 rounded-none p-4 sm:p-6 lg:p-10">
+                <form onSubmit={handleRegister} className="card-body p-2 sm:p-4">
                     <div className="form-control">
-                        <h3 className="text-2xl text-textPrimary font-raleway font-semibold text-center pb-4">
+                        <h3 className="text-xl sm:text-2xl text-textPrimary font-raleway font-semibold text-center pb-4">
                             Register Now!
                         </h3>
                         {/* name */}
                         <label className="label">
-                            <span className="label-text font-semibold">
+                            <span className="label-text font-semibold text-sm sm:text-base">
                                 Full Name
                             </span>
                         </label>
@@ -77,18 +77,18 @@ const Register = () => {
                             type="text"
                             name="name"
                             placeholder="Enter your name"
-                            className="input input-bordered"
+                            className="input input-bordered text-sm sm:text-base"
                             required
                         />
                         {error.name && (
-                            <label className="label text-red-600 text-sm">
+                            <label className="label text-red-600 text-xs sm:text-sm">
                                 {error.name}
                             </label>
                         )}
 
                         {/* photo */}
                         <label className="label">
-                            <span className="label-text font-semibold">
+                            <span className="label-text font-semibold text-sm sm:text-base">
                                 Photo URL
                             </span>
                         </label>
@@ -96,7 +96,7 @@ const Register = () => {
                             type="url"
                             name="photoUrl"
                             placeholder="Enter your photo URL"
-                            className="input input-bordered"
+                            className="input input-bordered text-sm sm:text-base"
                             required
                         />
                         {error.photoUrl && (
