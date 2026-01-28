@@ -11,7 +11,7 @@
 
 **RunTrack** is a comprehensive platform designed to bring marathon enthusiasts together. Whether you're a seasoned runner or just starting your journey, RunTrack provides the best marathon experiences with seamless event management and registration.
 
-[🌐 Visit Live Site](https://runtrack-marathon-event.web.app/) • [📖 Documentation](#table-of-contents) • [🐛 Report Bug](https://github.com/yourusername/marathon-event-ui/issues) • [✨ Request Feature](https://github.com/yourusername/marathon-event-ui/issues)
+[🌐 Visit Live Site](https://runtrack-marathon-event.web.app/) • [📖 Documentation](#table-of-contents) • [🐛 Report Bug](https://github.com/jannat-miftahul/marathon-event-ui/issues) • [✨ Request Feature](https://github.com/jannat-miftahul/marathon-event-ui/issues)
 
 </div>
 
@@ -19,7 +19,6 @@
 
 ## 📋 Table of Contents
 
-- [About](#-about)
 - [Key Features](#-key-features)
 - [Demo](#-demo)
 - [Tech Stack](#-tech-stack)
@@ -37,52 +36,14 @@
 
 ---
 
-## 🎯 About
-
-**RunTrack** is more than just a marathon registration platform—it's a complete ecosystem for runners. Built with modern web technologies, RunTrack offers:
-
-- 🏅 **Event Discovery**: Browse and discover upcoming marathon events worldwide
-- 📝 **Easy Registration**: Streamlined registration process for marathon participants
-- 👤 **User Dashboard**: Personalized dashboard to manage your marathon applications
-- 📱 **Responsive Design**: Seamless experience across all devices
-- 🔥 **Real-time Updates**: Stay informed with live event updates
-
-Our mission is to make marathon participation accessible, organized, and enjoyable for everyone—from beginners taking their first steps to seasoned athletes chasing personal records.
-
----
-
 ## ✨ Key Features
 
-### 🏃 For Runners
-
-- **📅 Event Calendar**: Browse upcoming marathons with detailed event information
-- **🎫 Quick Registration**: Simple, secure registration process
-- **📊 Personal Dashboard**: Track your registrations and application status
-- **🔔 Notifications**: Get notified about registration deadlines and event updates
-- **💳 Secure Payments**: Safe and secure payment processing
-
-### 🎨 For Developers
-
-- **⚡ Fast Performance**: Built with Vite for lightning-fast development and builds
-- **🎨 Modern UI**: Beautiful, responsive design with Tailwind CSS and DaisyUI
-- **🔐 Authentication**: Secure user authentication with Firebase Auth
-- **📦 State Management**: Efficient state management with React Context
-- **🧩 Reusable Components**: Modular component architecture
-- **🎭 Smooth Animations**: Enhanced UX with Lottie animations
-- **📱 Mobile-First**: Responsive design that works on any device
-
-### 🛠️ Technical Features
-
-- Single Page Application (SPA) with React Router
-- RESTful API integration with Axios
-- Firebase Authentication & Hosting
-- Toast notifications with React Hot Toast
-- Sweet alerts for enhanced user interactions
-- Date picker for event selection
-- Countdown timers for event deadlines
-- Masonry grid layouts for beautiful content display
-- Swiper integration for image carousels
-- Smooth scrolling navigation
+- **Event Discovery** - Browse marathons worldwide with detailed information
+- **Easy Registration** - Quick and secure event registration
+- **User Dashboard** - Manage applications and track event status
+- **Modern UI** - Beautiful, responsive design with Tailwind CSS
+- **Secure Auth** - Firebase authentication with JWT-secured backend API
+- **Fast Performance** - Built with Vite and React for optimal speed
 
 ---
 

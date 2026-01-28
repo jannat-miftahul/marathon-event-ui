@@ -21,8 +21,6 @@ const GoogleLogin = () => {
 
     return (
         <div className="flex flex-col">
-            <div className="divider text-base-content/60">OR</div>
-
             <button
                 onClick={handleGoogleSignin}
                 className="btn bg-base-100 border-base-300 text-base-content hover:bg-base-200 px-6 py-2 rounded-full"
