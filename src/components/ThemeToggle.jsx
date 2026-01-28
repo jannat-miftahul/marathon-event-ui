@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { MdOutlineWbSunny } from "react-icons/md";
+import { TbMoonStars } from "react-icons/tb";
 
 const ThemeToggle = () => {
     const [theme, setTheme] = useState(
@@ -22,10 +23,10 @@ const ThemeToggle = () => {
             aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
         >
             <span className={`absolute transition-all duration-300 ${theme === "light" ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`}>
-                <FaMoon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <TbMoonStars className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             </span>
             <span className={`absolute transition-all duration-300 ${theme === "dark" ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"}`}>
-                <FaSun className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
+                <MdOutlineWbSunny className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
             </span>
         </button>
     );
