@@ -3,12 +3,8 @@ import MarathonData from "./MarathonData";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import {
-    FaRunning,
-    FaMapMarkerAlt,
-    FaCalendarAlt,
-    FaTrophy,
-} from "react-icons/fa";
+import { FaRunning, FaMapMarkerAlt, FaCalendarAlt, FaTrophy } from "react-icons/fa";
+import Spinner from "../../components/Spinner";
 
 const MyMarathonList = () => {
     const { user } = useAuth();
@@ -120,9 +116,7 @@ const MyMarathonList = () => {
                 {/* Table */}
                 <div className="bg-base-100 border border-base-300 rounded-2xl shadow-sm overflow-hidden">
                     {isLoading ? (
-                        <div className="flex justify-center items-center py-20">
-                            <div className="w-12 h-12 border-4 border-primary/30 rounded-full animate-spin border-t-primary"></div>
-                        </div>
+                        <Spinner />
                     ) : marathons.length === 0 ? (
                         <div className="text-center py-16">
                             <div className="w-16 h-16 bg-base-200 rounded-full flex items-center justify-center mx-auto mb-4">

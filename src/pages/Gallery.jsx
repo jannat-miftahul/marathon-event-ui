@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import {
-    FaCamera,
-    FaVideo,
-    FaPlay,
-    FaImages,
-    FaExpand,
-    FaTimes,
-} from "react-icons/fa";
+import { FaCamera, FaVideo, FaPlay, FaImages, FaExpand, FaTimes } from "react-icons/fa";
+import Spinner from "../components/Spinner";
 
 const Gallery = () => {
     const [galleryItems, setGalleryItems] = useState([]);
@@ -140,31 +134,28 @@ const Gallery = () => {
                         <div className="flex items-center gap-2 bg-base-200 p-1.5 rounded-xl">
                             <button
                                 onClick={() => setFilter("all")}
-                                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${
-                                    filter === "all"
-                                        ? "bg-primary text-white shadow-md"
-                                        : "text-base-content/60 hover:text-base-content hover:bg-base-300"
-                                }`}
+                                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${filter === "all"
+                                    ? "bg-primary text-white shadow-md"
+                                    : "text-base-content/60 hover:text-base-content hover:bg-base-300"
+                                    }`}
                             >
                                 All
                             </button>
                             <button
                                 onClick={() => setFilter("photo")}
-                                className={`px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2 transition-all ${
-                                    filter === "photo"
-                                        ? "bg-primary text-white shadow-md"
-                                        : "text-base-content/60 hover:text-base-content hover:bg-base-300"
-                                }`}
+                                className={`px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2 transition-all ${filter === "photo"
+                                    ? "bg-primary text-white shadow-md"
+                                    : "text-base-content/60 hover:text-base-content hover:bg-base-300"
+                                    }`}
                             >
                                 <FaCamera /> Photos
                             </button>
                             <button
                                 onClick={() => setFilter("video")}
-                                className={`px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2 transition-all ${
-                                    filter === "video"
-                                        ? "bg-primary text-white shadow-md"
-                                        : "text-base-content/60 hover:text-base-content hover:bg-base-300"
-                                }`}
+                                className={`px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2 transition-all ${filter === "video"
+                                    ? "bg-primary text-white shadow-md"
+                                    : "text-base-content/60 hover:text-base-content hover:bg-base-300"
+                                    }`}
                             >
                                 <FaVideo /> Videos
                             </button>
@@ -174,9 +165,7 @@ const Gallery = () => {
 
                 {/* Gallery Grid */}
                 {isLoading ? (
-                    <div className="flex justify-center items-center py-20">
-                        <span className="loading loading-spinner loading-lg text-primary"></span>
-                    </div>
+                    <Spinner />
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredItems.map((item) => (

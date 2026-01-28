@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import MarathonCard from "./MarathonCard";
 import { Helmet } from "react-helmet-async";
-import {
-    FaSort,
-    FaRunning,
-    FaMapMarkerAlt,
-    FaCalendarAlt,
-} from "react-icons/fa";
+import { FaSort, FaRunning, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import Masonry from "react-masonry-css";
+import Spinner from "../../components/Spinner";
 
 // Masonry breakpoint columns configuration
 const breakpointColumnsObj = {
@@ -143,12 +139,7 @@ const Marathons = () => {
 
                 {/* Marathon Grid */}
                 {isLoading ? (
-                    <div className="flex justify-center items-center py-20">
-                        <div className="relative">
-                            <div className="w-16 h-16 border-4 border-primary/30 rounded-full animate-spin border-t-primary"></div>
-                            <FaRunning className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary text-xl" />
-                        </div>
-                    </div>
+                    <Spinner />
                 ) : marathons.length === 0 ? (
                     <div className="text-center py-20">
                         <div className="w-20 h-20 bg-base-200 rounded-full flex items-center justify-center mx-auto mb-4">

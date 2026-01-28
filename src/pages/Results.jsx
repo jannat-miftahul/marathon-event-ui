@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import {
-    FaSearch,
-    FaTrophy,
-    FaMedal,
-    FaUsers,
-    FaClock,
-    FaRunning,
-    FaMale,
-    FaFemale,
+    FaSearch, FaTrophy, FaMedal, FaUsers, FaClock,
+    FaRunning, FaMale, FaFemale
 } from "react-icons/fa";
 import { IoFilterOutline } from "react-icons/io5";
+import Spinner from "../components/Spinner";
 
 const Results = () => {
     const [results, setResults] = useState([]);
@@ -225,9 +220,7 @@ const Results = () => {
                 {/* Results Table */}
                 <div className="bg-base-100 border border-base-300 rounded-2xl shadow-sm overflow-hidden">
                     {isLoading ? (
-                        <div className="flex justify-center items-center py-20">
-                            <div className="w-12 h-12 border-4 border-primary/30 rounded-full animate-spin border-t-primary"></div>
-                        </div>
+                        <Spinner />
                     ) : filteredResults.length === 0 ? (
                         <div className="text-center py-16">
                             <div className="w-16 h-16 bg-base-200 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -279,15 +272,14 @@ const Results = () => {
                                             <td className="py-4 px-4">
                                                 <div className="flex items-center gap-3">
                                                     <div
-                                                        className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                                                            result.category ===
+                                                        className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${result.category ===
                                                             "Men's"
-                                                                ? "bg-blue-500/10"
-                                                                : "bg-pink-500/10"
-                                                        }`}
+                                                            ? "bg-blue-500/10"
+                                                            : "bg-pink-500/10"
+                                                            }`}
                                                     >
                                                         {result.category ===
-                                                        "Men's" ? (
+                                                            "Men's" ? (
                                                             <FaMale className="text-blue-500" />
                                                         ) : (
                                                             <FaFemale className="text-pink-500" />
@@ -313,12 +305,11 @@ const Results = () => {
                                             </td>
                                             <td className="py-4 px-4 hidden sm:table-cell">
                                                 <span
-                                                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                                                        result.category ===
+                                                    className={`px-3 py-1 rounded-full text-xs font-semibold ${result.category ===
                                                         "Men's"
-                                                            ? "bg-blue-500/10 text-blue-600"
-                                                            : "bg-pink-500/10 text-pink-600"
-                                                    }`}
+                                                        ? "bg-blue-500/10 text-blue-600"
+                                                        : "bg-pink-500/10 text-pink-600"
+                                                        }`}
                                                 >
                                                     {result.category}
                                                 </span>
