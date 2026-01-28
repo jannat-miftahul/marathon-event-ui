@@ -29,10 +29,6 @@
     - [Environment Variables](#environment-variables)
     - [Available Scripts](#available-scripts)
 - [Usage](#-usage)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](#-contact)
-- [Acknowledgments](#-acknowledgments)
 
 ---
 
